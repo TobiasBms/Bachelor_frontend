@@ -1,7 +1,13 @@
 {
+  // Disable built-in CSS validation and use Stylelint instead
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
   // Format and lint on save
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
 }
