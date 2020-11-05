@@ -1,4 +1,4 @@
-# bachelor_frontend
+# bachelor-frontend
 
 ## Project setup
 ```
