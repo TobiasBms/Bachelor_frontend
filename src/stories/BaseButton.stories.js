@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import BaseButton from '../components/BaseButton'
 import '../assets/styles/index.css'
 
