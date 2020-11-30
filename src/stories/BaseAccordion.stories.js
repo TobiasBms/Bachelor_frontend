@@ -10,7 +10,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   onClick: () => console.log('test'),
   components: { BaseAccordion },
-  template: '<BaseAccordion v-bind="$props" />',
+  template: '<BaseAccordion v-bind="$props"><div v-slot:product></div></BaseAccordion>',
 })
 
 export const Accordion = Template.bind({})
