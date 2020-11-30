@@ -1,9 +1,7 @@
 <template>
   <details>
     <summary>{{ summary }}</summary>
-    <div>
-      {{ description }}
-    </div>
+    <slot name="product"></slot>
   </details>
 </template>
 
@@ -11,10 +9,6 @@
 export default {
   name: 'BaseAccordion',
   props: {
-    description: {
-      type: String,
-      default: 'description',
-    },
     summary: {
       type: String,
       default: 'default summary',
@@ -43,7 +37,7 @@ details summary::after {
   height: 10px;
 }
 
-details div{
+details slot{
   @apply p-5;
 }
 
