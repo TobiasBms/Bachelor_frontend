@@ -1,17 +1,25 @@
 <template>
   <details>
     <summary>{{ summary }}</summary>
-    <slot name="product"></slot>
+    <div class="detailChild">
+      <slot name="test">no items</slot>
+    </div>
   </details>
 </template>
 
 <script>
+
 export default {
   name: 'BaseAccordion',
   props: {
     summary: {
       type: String,
       default: 'default summary',
+    },
+  },
+  computed: {
+    getData() {
+      return this.data
     },
   },
 }
@@ -22,28 +30,34 @@ details {
   cursor: pointer;
   @apply bg-gray-300;
 }
+
 summary {
   position: relative;
   @apply p-5;
 }
 
 details summary::after {
-  content:"🡒";
+  content: "";
+  background: url("../assets/Vector.png")no-repeat center center;
   top: 50%;
-  transform: translateY(calc(-50% - 10px));
+  transform: translateY(-50%);
   position: absolute;
   left: 95%;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 }
 
-details slot{
+details .detailChild {
   @apply p-5;
 }
 
 details[open] summary::after {
-  content: "🡑";
+  transform-origin: center center;
+  transform: rotate(90deg);
+  background: url("../assets/Vector.png") no-repeat center center;
 }
 
-summary::-webkit-details-marker {display: none; }
+summary::-webkit-details-marker {
+  display: none;
+}
 </style>
