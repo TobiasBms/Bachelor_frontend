@@ -10,6 +10,7 @@
     }"
     :disabled="isDisabled"
     :type="type"
+    @click="onClick"
   >
     <svg
       v-if="loading"
@@ -24,7 +25,7 @@
         clip-rule="evenodd"
       />
     </svg>
-    {{ label }}
+    <img :src="image" alt="" />
   </button>
 </template>
 
@@ -32,9 +33,9 @@
 export default {
   name: 'BaseButton',
   props: {
-    label: {
+    image: {
       type: String,
-      default: 'Button',
+      default: '',
       required: true,
     },
     disabled: Boolean,
@@ -72,30 +73,39 @@ export default {
 .btn {
   @apply font-thin py-2 px-3 rounded-lg font-sans inline-flex items-center transition-colors duration-100;
 }
+
 .btn-small {
   @apply text-xs;
 }
+
 .btn-large {
   @apply text-xl;
 }
+
 .btn:disabled {
   @apply cursor-wait;
 }
+
 .btn-green {
   @apply bg-green-500 text-white;
 }
+
 .btn-red {
   @apply bg-red-500 text-white;
 }
+
 .btn-green:active:not(:disabled) {
   @apply bg-green-700;
 }
+
 .btn-red:active:not(:disabled) {
   @apply bg-red-700;
 }
+
 .btn-gray {
   @apply bg-gray-700 text-white cursor-not-allowed;
 }
+
 .btn-spinner {
   @apply animate-spin mr-3 h-5 w-5 text-white;
 }
