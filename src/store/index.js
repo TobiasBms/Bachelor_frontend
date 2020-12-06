@@ -4,8 +4,20 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  state: {
+    searchData: {
+      data: 'test',
+    },
+  },
+  mutations: {
+    dispense(state) {
+      state.searchData.data = 'something else'
+    },
+  },
+  actions: {
+    dispense(context) {
+      return context.commit('dispense')
+    },
+  },
   modules: {},
 })
