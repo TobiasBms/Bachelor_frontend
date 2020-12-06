@@ -5,11 +5,11 @@
     </section>
     <section id="search">
       <label for="search"
-        ><input v-model="search" placeholder="søg" type="text" name="search" />
+        ><input v-model="message" placeholder="søg" type="text" name="search" />
       </label>
       <div :class="classObject">
         <section id="dropdown">
-          {{ search }}
+          {{ message }}
         </section>
       </div>
     </section>
@@ -28,16 +28,28 @@ export default {
   data: function() {
     return {
       isActive: true,
-      search: '',
     }
   },
   computed: {
+    message: {
+      get() {
+        return this.$store.state.message
+      },
+      set(value) {
+        this.$store.commit('updateMessage', value)
+      },
+    },
     classObject: function() {
       return {
-        active: this.search.length
+        active: this.message.length
           ? (this.isActive = true)
           : (this.isActive = false),
       }
+    },
+  },
+  methods: {
+    updateMessage(e) {
+      this.$store.commit('updateMessage', e.target.value)
     },
   },
 }

@@ -1,5 +1,5 @@
 import BaseHeader from '../components/BaseHeader'
-
+import store from '../store'
 export default {
   title: 'Ui/Header',
   component: BaseHeader,
@@ -11,6 +11,7 @@ const Template = (args, { argTypes }) => ({
   onClick: () => console.log('test'),
   components: { BaseHeader },
   template: '<BaseHeader v-bind="$props"></BaseHeader>',
+  store: store,
 })
 
 export const Header = Template.bind({})

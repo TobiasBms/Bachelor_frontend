@@ -5,13 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    searchData: {
-      data: 'test',
-    },
+    message: 'test',
   },
   mutations: {
-    dispense(state) {
-      state.searchData.data = 'something else'
+    updateMessage(state, message) {
+      state.message = message
     },
   },
   actions: {
