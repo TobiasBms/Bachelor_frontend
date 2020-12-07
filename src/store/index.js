@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    message: 'test',
+    message: '',
   },
   mutations: {
     updateMessage(state, message) {
