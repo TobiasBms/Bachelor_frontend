@@ -5,16 +5,28 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    message: 'test',
+    restaurants: [],
+    restaurant: [],
   },
   mutations: {
-    updateMessage(state, message) {
-      state.message = message
+    setRestaurants(state, data) {
+      state.restaurants = data
+    },
+    setRestaurant(state, data) {
+      state.restaurant = data
     },
   },
+  getters: {},
   actions: {
-    dispense(context) {
-      return context.commit('dispense')
+    async fetchRestaurant(context) {
+      const response = await fetch('http://localhost:3002/api/restaurant')
+      const data = await response.json()
+      context.commit('setRestaurants', data)
+    },
+    async fetchSingleRestaurant(context, id) {
+      const response = await fetch(`http://localhost:3002/api/restaurant/${id}`)
+      const data = await response.json()
+      context.commit('setRestaurant', data)
     },
   },
   modules: {},

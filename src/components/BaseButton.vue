@@ -1,6 +1,7 @@
 <template>
   <button
     class="btn"
+    @click="onClick"
     :class="{
       'btn-gray': disabled,
       'btn-green': !negative,

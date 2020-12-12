@@ -1,14 +1,32 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <BaseHeader>
+      <template v-slot:navItems>
+        <nav>
+          <router-link to="/">Home</router-link> |
+          <router-link to="/about">About</router-link>
+        </nav>
+      </template>
+    </BaseHeader>
+
     <router-view />
   </div>
 </template>
 
+<script>
+import BaseHeader from './components/BaseHeader.vue'
+
+export default {
+  components: {
+    BaseHeader,
+  },
+}
+</script>
+
 <style>
+body{
+  background: #E7EEF7;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -3,10 +3,12 @@
     <section>
       <h1>{{ title }}</h1>
     </section>
+    <slot name="navItems"></slot>
     <section id="search">
       <label for="search"
         ><input v-model="message" placeholder="søg" type="text" name="search" />
       </label>
+
       <div :class="classObject">
         <section id="dropdown">
           {{ message }}
@@ -39,6 +41,8 @@ export default {
         this.$store.commit('updateMessage', value)
       },
     },
+  },
+  watch: {
     classObject: function() {
       return {
         active: this.message.length
