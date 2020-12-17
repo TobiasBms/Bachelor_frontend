@@ -1,0 +1,14 @@
+{
+  "name": "CateIt",
+  "short_name": "CateIt",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#FFF",
+  "icons": [
+    {
+      "src": "img/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
