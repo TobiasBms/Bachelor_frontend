@@ -1,7 +1,13 @@
 <template>
-  <main>
+  <main class="container mx-auto">
+    <header class="text-left mt-3">
+      <h2 class="font-bold text-lg">
+        Restauranter
+      </h2>
+      <p>Find restaurant i dit område</p>
+    </header>
     <div v-if="restaurants.length">
-      <BaseList v-for="restaurant in restaurants" :key="restaurant.id">
+      <BaseList v-for="restaurant in restaurants" :key="restaurant.id" class="border-b mt-3 shadow-md">
         <template #list>
           <BaseAccordion
             :summary="restaurant.name"
@@ -15,7 +21,7 @@
                 <div>
                   <p>{{ restaurant.description }}</p>
                 </div>
-                <BaseButton label=" Vælg restaurant" :on-click="(e) => handleRoute(restaurant.id)" />
+                <BaseButton class="rounded-sm" label=" Vælg restaurant" :on-click="(e) => handleRoute(restaurant.id)" />
               </div>
             </template>
           </BaseAccordion>

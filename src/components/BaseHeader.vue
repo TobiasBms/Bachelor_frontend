@@ -1,14 +1,19 @@
 <template>
-  <header>
-    <section>
-      <h1>{{ title }}</h1>
-    </section>
+  <header class="container mx-auto rounded-md ">
     <slot name="navItems"></slot>
+    <section class="rounded-sm p-3 bg-white">
+      <h1 class="text-black">{{ title }}</h1>
+    </section>
     <section id="search">
       <label for="search"
-        ><input v-model="message" placeholder="søg" type="text" name="search" />
+        ><input
+          v-model="message"
+          class="rounded-sm"
+          placeholder="søg"
+          type="text"
+          name="search"
+        />
       </label>
-
       <div :class="classObject">
         <section id="dropdown">
           {{ message }}
@@ -58,10 +63,9 @@ export default {
   },
 }
 </script>
-
 <style scoped>
 header {
-  @apply flex justify-between p-3 m-3 items-center;
+  @apply flex justify-between p-3  items-center;
   color: white;
   background: #1c1c1e;
 }

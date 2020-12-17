@@ -1,14 +1,15 @@
 <template>
   <div id="app">
     <BaseHeader>
-      <template v-slot:navItems>
-        <nav>
-          <router-link to="/">Home</router-link> |
-          <router-link to="/about">About</router-link>
+      <template #navItems>
+        <nav class="flex">
+          <router-link to="/" class="flex flex-col text-white bg-green-500 p-2 rounded-sm text-sm font-semibold mr-3 items-center"><img class="lg:w-8" src="./assets/restaurants.svg" alt="">Restaurants</router-link>
+          <router-link to="/about" class="text-white bg-green-500 p-3 font-semibold text-sm rounded-sm mr-3">Bestilling</router-link>
+          <router-link to="/about" class="text-white bg-green-500 p-3 font-semibold text-sm rounded-sm mr-3">Se din order</router-link>
+          <router-link to="/about" class="text-white bg-green-500 p-3 font-semibold text-sm rounded-sm">Betaling</router-link>
         </nav>
       </template>
     </BaseHeader>
-
     <router-view />
   </div>
 </template>

@@ -31,35 +31,36 @@
 
 <script>
 export default {
-  name: 'BaseButton',
+  name: "BaseButton",
   props: {
     label: {
       type: String,
-      default: 'Button',
+      default: "Button",
       required: true,
     },
     disabled: Boolean,
     type: {
       type: String,
-      default: 'button',
-      validator: value => ['button', 'submit', 'reset'].includes(value),
+      default: "button",
+      validator: value => ["button", "submit", "reset"].includes(value),
     },
     size: {
       type: String,
-      default: 'normal',
-      validator: value => ['small', 'normal', 'large'].includes(value),
+      default: "normal",
+      validator: value => ["small", "normal", "large"].includes(value),
     },
     loading: Boolean,
     negative: Boolean,
     onClick: {
       type: Function,
-      default: () => {},
+      default: () => {
+      },
     },
   },
   computed: {
     style() {
       return `btn ${
-        this.disabled ? 'btn-gray' : this.negative ? 'btn-red' : 'btn-green'
+        this.disabled ? "btn-gray" : this.negative ? "btn-red" : "btn-green"
       }`
     },
     isDisabled() {
@@ -73,30 +74,39 @@ export default {
 .btn {
   @apply font-thin py-2 px-3 rounded-lg font-sans inline-flex items-center transition-colors duration-100;
 }
+
 .btn-small {
   @apply text-xs;
 }
+
 .btn-large {
   @apply text-xl;
 }
+
 .btn:disabled {
   @apply cursor-wait;
 }
+
 .btn-green {
   @apply bg-green-500 text-white;
 }
+
 .btn-red {
   @apply bg-red-500 text-white;
 }
+
 .btn-green:active:not(:disabled) {
   @apply bg-green-700;
 }
+
 .btn-red:active:not(:disabled) {
   @apply bg-red-700;
 }
+
 .btn-gray {
   @apply bg-gray-700 text-white cursor-not-allowed;
 }
+
 .btn-spinner {
   @apply animate-spin mr-3 h-5 w-5 text-white;
 }

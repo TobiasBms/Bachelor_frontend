@@ -1,5 +1,5 @@
 <template>
-  <section id="list">
+  <section id="list" class="bg-gray-300 rounded-md">
     <slot name="list"></slot>
   </section>
 </template>
@@ -11,7 +11,5 @@ export default {
 </script>
 
 <style scoped>
-#list {
-  @apply flex justify-between p-3;
-}
+
 </style>
