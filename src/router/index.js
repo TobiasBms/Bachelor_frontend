@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Restaurants from '../views/Restaurants.vue'
 import Restaurant from '../views/Restaurant.vue'
+import Category from '@/views/Category'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/restaurant/:id',
     name: 'Restaurant',
     component: Restaurant,
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category,
   },
   {
     path: '/shoppingcart',

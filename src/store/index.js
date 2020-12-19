@@ -8,6 +8,7 @@ export default new Vuex.Store({
     restaurants: [],
     restaurant: [],
     cords: [],
+    categories: [],
   },
   mutations: {
     setRestaurants(state, data) {
@@ -16,8 +17,11 @@ export default new Vuex.Store({
     setRestaurant(state, data) {
       state.restaurant = data
     },
-    setCords(state, cords) {
-      state.cords = cords
+    setCords(state, coords) {
+      state.cords = coords
+    },
+    setCategories(state, categories) {
+      state.categoires = categories
     },
   },
   getters: {},
@@ -29,11 +33,12 @@ export default new Vuex.Store({
     },
     async fetchSingleRestaurant(context, id) {
       const response = await fetch(
-        `http://localhost:3002/api/restaurant/${id}?scopes=hours`
+        `http://localhost:3002/api/restaurant/${id}?scopes=hours,categories`
       )
       const data = await response.json()
       context.commit('setRestaurant', data)
       context.commit('setCords', data.location.coordinates)
+      context.commit('setCategories', data.categoires)
     },
   },
   modules: {},

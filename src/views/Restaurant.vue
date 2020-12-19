@@ -20,10 +20,13 @@
           </p>
         </section>
       </section>
-      <BaseButton
-        label="Vis menu"
-        class="bg-green-500 text-white p-3 rounded-md"
-      />
+      <router-link to="/category">
+        <BaseButton
+          label="Vis menu"
+          class="bg-green-500 text-white p-3 rounded-md"
+        />
+      </router-link>
+
       <section class="mt-3">
         <section>
           <section>
