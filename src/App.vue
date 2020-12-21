@@ -25,23 +25,23 @@
           <router-link
             to="/about"
             class="text-white bg-green-500 p-3 font-semibold text-sm rounded-sm mr-3"
-          >Se din order
+            >Se din order
           </router-link>
           <router-link
             to="/about"
             class="text-white bg-green-500 p-3 font-semibold text-sm rounded-sm"
-          >Betaling
+            >Betaling
           </router-link>
         </nav>
       </template>
     </BaseHeader>
     <router-view />
-    <button id="add" class="add-button">Add to home screen</button>
+    <button id="add" ref="add" class="add-button">Add to home screen</button>
   </div>
 </template>
 
 <script>
-import BaseHeader from "./components/BaseHeader.vue"
+import BaseHeader from './components/BaseHeader.vue'
 
 export default {
   components: {
@@ -50,12 +50,31 @@ export default {
   data() {
     return {
       isOpen: null,
+      def: null,
     }
   },
   watch: {
     isOpen: function() {
       this.isOpen = document.body.clientWidth
     },
+  },
+  mounted() {
+    // eslint-disable-next-line no-unused-vars
+    let deferredPrompt
+
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault()
+      deferredPrompt = e
+      this.$refs.add.style.display = 'block'
+      this.$refs.add.addEventListener('click', () => {
+        this.$refs.add.display = 'none'
+
+        deferredPrompt.prompt()
+
+
+        deferredPrompt = null
+      })
+    })
   },
 }
 </script>
@@ -64,10 +83,11 @@ export default {
 body {
   background: #e7eef7;
 }
-#add{
+
+#add {
   position: fixed;
   @apply rounded-sm p-3 bg-green-400;
-  color:white;
+  color: white;
   bottom: 20px;
   right: 20px;
 }
