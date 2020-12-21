@@ -27,13 +27,13 @@ export default new Vuex.Store({
   getters: {},
   actions: {
     async fetchRestaurant(context) {
-      const response = await fetch('http://localhost:3002/api/restaurant')
+      const response = await fetch('http://192.168.87.53:3002/api/restaurant')
       const data = await response.json()
       context.commit('setRestaurants', data)
     },
     async fetchSingleRestaurant(context, id) {
       const response = await fetch(
-        `http://localhost:3002/api/restaurant/${id}?scopes=hours,categories`
+        `http://192.168.87.53:3002/api/restaurant/${id}?scopes=hours,categories`
       )
       const data = await response.json()
       context.commit('setRestaurant', data)

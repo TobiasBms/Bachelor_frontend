@@ -1,6 +1,6 @@
 <template>
-  <details>
-    <summary>
+  <details class="rounded-md">
+    <summary class="md:p-3">
       <div class="md:flex items-center">
         <div>
           <img
@@ -9,7 +9,7 @@
             alt="Restaurant image"
           />
         </div>
-        <div class="pl-3">
+        <div class="p-3">
           <h2>
             {{ summary }}
           </h2>
@@ -41,7 +41,7 @@ export default {
 <style>
 details {
   cursor: pointer;
-  @apply bg-white
+  @apply bg-white;
 }
 
 details h2 {
@@ -59,7 +59,6 @@ details h2 {
 
 summary {
   position: relative;
-  @apply p-5;
 }
 
 details summary::after {

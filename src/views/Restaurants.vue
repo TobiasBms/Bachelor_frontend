@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto">
+  <main class="md:container md:mx-auto m-3">
     <header class="text-left mt-3">
       <h2 class="font-bold text-lg">
         Restauranter
@@ -14,7 +14,7 @@
             :caption="restaurant.description"
           >
             <template #product>
-              <div class="listItem">
+              <div class="listItem ">
                 <div>
                   <h2>Addresse: {{ restaurant.address }}</h2>
                 </div>
@@ -66,7 +66,7 @@ export default {
 }
 
 details {
-  @apply rounded-md;
+  @apply rounded;
   text-align: left;
   width: 100%;
 }

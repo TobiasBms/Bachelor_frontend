@@ -36,6 +36,7 @@
       </template>
     </BaseHeader>
     <router-view />
+    <button id="add" class="add-button">Add to home screen</button>
   </div>
 </template>
 
@@ -62,6 +63,13 @@ export default {
 <style>
 body {
   background: #e7eef7;
+}
+#add{
+  position: fixed;
+  @apply rounded-sm p-3 bg-green-400;
+  color:white;
+  bottom: 20px;
+  right: 20px;
 }
 
 #app {
