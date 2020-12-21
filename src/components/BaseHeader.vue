@@ -14,7 +14,7 @@
           name="search"
         />
       </label>
-      <div :class="classObject">
+      <div>
         <section id="dropdown">
           {{ message }}
         </section>

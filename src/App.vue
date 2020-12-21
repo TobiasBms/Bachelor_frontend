@@ -25,23 +25,25 @@
           <router-link
             to="/about"
             class="text-white bg-green-500 p-3 font-semibold text-sm rounded-sm mr-3"
-            >Se din order
+          >Se din order
           </router-link>
           <router-link
             to="/about"
             class="text-white bg-green-500 p-3 font-semibold text-sm rounded-sm"
-            >Betaling
+          >Betaling
           </router-link>
         </nav>
       </template>
     </BaseHeader>
     <router-view />
-    <button id="add" ref="add" class="add-button">Add to home screen</button>
+    <button id="add" ref="add">
+       Add to home screen
+    </button>
   </div>
 </template>
 
 <script>
-import BaseHeader from './components/BaseHeader.vue'
+import BaseHeader from "./components/BaseHeader.vue"
 
 export default {
   components: {
@@ -50,7 +52,6 @@ export default {
   data() {
     return {
       isOpen: null,
-      def: null,
     }
   },
   watch: {
@@ -62,21 +63,19 @@ export default {
     // eslint-disable-next-line no-unused-vars
     let deferredPrompt
 
-    window.addEventListener('beforeinstallprompt', e => {
+    window.addEventListener("beforeinstallprompt", (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault()
+      // Stash the event so it can be triggered later.
       deferredPrompt = e
-      this.$refs.add.style.display = 'block'
-      this.$refs.add.addEventListener('click', () => {
-        this.$refs.add.display = 'none'
 
-        deferredPrompt.prompt()
+      this.$refs.add.style.display = "block"
 
-
-        deferredPrompt = null
-      })
     })
   },
+
 }
+
 </script>
 
 <style>
@@ -85,11 +84,12 @@ body {
 }
 
 #add {
-  position: fixed;
-  @apply rounded-sm p-3 bg-green-400;
+  position: static;
+  z-index: 100;
+  @apply p-3 bg-green-500;
   color: white;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0;
+  right: 0;
 }
 
 #app {
