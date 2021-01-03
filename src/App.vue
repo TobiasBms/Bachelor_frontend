@@ -5,13 +5,13 @@
         <aside :datatype="isOpen">
           {{ isOpen }}
         </aside>
-        <nav class="flex h-16">
+        <nav class="flex md:flex-row flex-col md:h-16">
           <router-link
             to="/"
-            class="flex flex-col text-white bg-green-500 p-2 rounded-sm text-sm font-semibold mr-3 items-center"
+            class="flex md:flex-col text-white item-center bg-green-500 md:p-2 rounded-sm text-sm font-semibold md:mr-3 items-center"
           >
             <img
-              class="icon"
+              class="icon h-12"
               src="./assets/restaurants.svg"
               alt=""
             />Restaurants
@@ -36,9 +36,6 @@
       </template>
     </BaseHeader>
     <router-view />
-    <button id="add" ref="add">
-       Add to home screen
-    </button>
   </div>
 </template>
 
@@ -59,21 +56,7 @@ export default {
       this.isOpen = document.body.clientWidth
     },
   },
-  mounted() {
-    // eslint-disable-next-line no-unused-vars
-    let deferredPrompt
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault()
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e
-
-      this.$refs.add.style.display = "block"
-
-    })
-  },
-
+  mounted() {}
 }
 
 </script>

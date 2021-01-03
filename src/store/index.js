@@ -9,6 +9,7 @@ export default new Vuex.Store({
     restaurant: [],
     cords: [],
     categories: [],
+    products: [],
   },
   mutations: {
     setRestaurants(state, data) {
@@ -21,24 +22,40 @@ export default new Vuex.Store({
       state.cords = coords
     },
     setCategories(state, categories) {
-      state.categoires = categories
+      state.categories = categories
+    },
+    setProducts(state, payload) {
+      state.products = payload
     },
   },
-  getters: {},
+  getters: {
+    getCategories: state => {
+      return state.categories
+    },
+    getProducts: state => {
+      return state.products
+    },
+  },
   actions: {
     async fetchRestaurant(context) {
-      const response = await fetch('http://192.168.87.53:3002/api/restaurant')
+      const response = await fetch('https://tobiasbm.dev/api/restaurant')
       const data = await response.json()
       context.commit('setRestaurants', data)
     },
     async fetchSingleRestaurant(context, id) {
       const response = await fetch(
-        `http://192.168.87.53:3002/api/restaurant/${id}?scopes=hours,categories`
+        `https://tobiasbm.dev/api/restaurant/${id}?scopes=hours,categories`
       )
       const data = await response.json()
       context.commit('setRestaurant', data)
       context.commit('setCords', data.location.coordinates)
-      context.commit('setCategories', data.categoires)
+      context.commit('setCategories', data.categories)
+    },
+    async fetchRestaurantProducts(context) {
+      const response = await fetch(`https://tobiasbm.dev/api/product`)
+      const data = await response.json()
+
+      context.commit('setProducts', data)
     },
   },
   modules: {},
